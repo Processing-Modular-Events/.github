@@ -43,34 +43,6 @@ Evenement -> Core (Kafka + Elasticsearch) -> Modules (plug-and-play)
   +-------------+  +-----------+  +---------+  +------------+
 ```
 
-## Creer un module
-
-```xml
-<dependency>
-    <groupId>fr.capellegab</groupId>
-    <artifactId>pme-api</artifactId>
-    <version>0.0.1</version>
-</dependency>
-```
-
-```java
-public class MyModule implements EventModule {
-
-    @Override
-    public ModuleConfig config() {
-        return ModuleConfig.builder()
-                .name("my-module")
-                .subscribesTo(Set.of(EventType.TRANSACTION))
-                .build();
-    }
-
-    @Override
-    public void onEvent(Event event, EventContext context) {
-        // Votre logique ici
-    }
-}
-```
-
 ## Stack
 
 Java 25 · Spring Boot 3.x · Apache Kafka · Elasticsearch · Kibana · Docker
