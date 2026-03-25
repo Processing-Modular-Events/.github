@@ -16,13 +16,13 @@ Evenement -> Core (Kafka + Elasticsearch) -> Modules (plug-and-play)
 
 ## Repositories
 
-| Repo | Description | |
-|------|-------------|---|
-| [`pme-api`](https://github.com/Processing-Modular-Events/pme-api) | SDK pour developper des modules — zero dependance Spring | ![Public](https://img.shields.io/badge/-public-brightgreen) |
-| [`pme-core`](https://github.com/Processing-Modular-Events/pme-core) | Moteur de la plateforme — Spring Boot, Kafka, Elasticsearch | ![Private](https://img.shields.io/badge/-private-red) |
-| [`pme-module-fraud`](https://github.com/Processing-Modular-Events/pme-module-fraud) | Module de detection de fraude en temps reel | ![Private](https://img.shields.io/badge/-private-red) |
+| Repo                                                                                        | Description | |
+|---------------------------------------------------------------------------------------------|-------------|---|
+| [`pme-sdk`](https://github.com/Processing-Modular-Events/pme-sdk)                           | SDK pour developper des modules — zero dependance Spring | ![Public](https://img.shields.io/badge/-public-brightgreen) |
+| [`pme-core`](https://github.com/Processing-Modular-Events/pme-core)                         | Moteur de la plateforme — Spring Boot, Kafka, Elasticsearch | ![Private](https://img.shields.io/badge/-private-red) |
+| [`pme-module-fraud`](https://github.com/Processing-Modular-Events/pme-module-fraud)         | Module de detection de fraude en temps reel | ![Private](https://img.shields.io/badge/-private-red) |
 | [`pme-module-analytics`](https://github.com/Processing-Modular-Events/pme-module-analytics) | Module d'agregation et d'analyse des evenements | ![Public](https://img.shields.io/badge/-public-brightgreen) |
-| [`pme-module-metrics`](https://github.com/Processing-Modular-Events/pme-module-metrics) | Module de metriques temps reel et suivi de latence | ![Public](https://img.shields.io/badge/-public-brightgreen) |
+| [`pme-module-metrics`](https://github.com/Processing-Modular-Events/pme-module-metrics)     | Module de metriques temps reel et suivi de latence | ![Public](https://img.shields.io/badge/-public-brightgreen) |
 
 ## Architecture
 
