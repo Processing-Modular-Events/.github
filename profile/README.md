@@ -24,6 +24,7 @@ Evenement -> Core (Kafka + Elasticsearch) -> Modules (plug-and-play)
 | [`pme-module-analytics`](https://github.com/Processing-Modular-Events/pme-module-analytics) | Module d'agregation et d'analyse | ![Public](https://img.shields.io/badge/-public-brightgreen) |
 | [`pme-module-metrics`](https://github.com/Processing-Modular-Events/pme-module-metrics) | Module de metriques temps reel | ![Public](https://img.shields.io/badge/-public-brightgreen) |
 | [`pme-docs`](https://github.com/Processing-Modular-Events/pme-docs) | Documentation SDK (MkDocs) | ![Public](https://img.shields.io/badge/-public-brightgreen) |
+| [`pme-module-template`](https://github.com/Processing-Modular-Events/pme-module-template) | Template pour creer un module | ![Template](https://img.shields.io/badge/-template-blue) |
 
 ## Architecture
 
