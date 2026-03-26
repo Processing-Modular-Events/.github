@@ -28,19 +28,15 @@ Evenement -> Core (Kafka + Elasticsearch) -> Modules (plug-and-play)
 ## Architecture
 
 ```mermaid
-graph TB
-    SDK["pme-sdk\nEventModule · EventContext\nEvent · ModuleConfig"]
-    CORE["pme-core\nREST API · Kafka · Elasticsearch\nModule Loader"]
-
-    SDK -->|depends on| FRAUD[Fraud]
-    SDK -->|depends on| ANALYTICS[Analytics]
-    SDK -->|depends on| METRICS[Metrics]
-    SDK -->|depends on| YOURS[Your module]
-
-    CORE -->|loads| FRAUD
-    CORE -->|loads| ANALYTICS
-    CORE -->|loads| METRICS
-    CORE -->|loads| YOURS
+graph LR
+    A[Event Source] -->|POST /api/events| B[pme-core]
+    B --> C[Kafka]
+    B --> D[(Elasticsearch)]
+    C --> E[Modules]
+    E --> F[Fraud]
+    E --> G[Analytics]
+    E --> H[Metrics]
+    D --> I[Kibana]
 ```
 
 ## Stack
