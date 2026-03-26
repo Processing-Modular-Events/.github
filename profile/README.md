@@ -27,21 +27,20 @@ Evenement -> Core (Kafka + Elasticsearch) -> Modules (plug-and-play)
 
 ## Architecture
 
-```
-+------------------+     +-------------------------------+
-|     pme-sdk      |     |          pme-core             |
-|                  |     |                               |
-|  EventModule     |     |  REST API (/api/events)       |
-|  EventContext    |     |  Kafka Producer/Consumer      |
-|  Event model     |     |  Elasticsearch persistence    |
-|  ModuleConfig    |     |  Module Loader (discovery)    |
-+--------+---------+     +-------+-----------+-----------+
-         |                       |           |
-         | depends on            |           | loads
-         v                       v           v
-  +------+------+  +-----------+  +---------+  +------------+
-  |    Fraud    |  | Analytics |  | Metrics |  | Your module|
-  +-------------+  +-----------+  +---------+  +------------+
+```mermaid
+graph TB
+    SDK["pme-sdk\nEventModule · EventContext\nEvent · ModuleConfig"]
+    CORE["pme-core\nREST API · Kafka · Elasticsearch\nModule Loader"]
+
+    SDK -->|depends on| FRAUD[Fraud]
+    SDK -->|depends on| ANALYTICS[Analytics]
+    SDK -->|depends on| METRICS[Metrics]
+    SDK -->|depends on| YOURS[Your module]
+
+    CORE -->|loads| FRAUD
+    CORE -->|loads| ANALYTICS
+    CORE -->|loads| METRICS
+    CORE -->|loads| YOURS
 ```
 
 ## Stack
