@@ -8,7 +8,7 @@
 
 Un **core** ingere des evenements en temps reel via Apache Kafka. Des **modules** independants se greffent dessus pour traiter ces evenements — detection de fraude, analytics, metriques, ou n'importe quelle logique metier.
 
-N'importe quel developpeur peut creer son propre module en important le SDK (`pme-api`).
+N'importe quel developpeur peut creer son propre module en important le SDK (`pme-sdk`).
 
 ```
 Evenement -> Core (Kafka + Elasticsearch) -> Modules (plug-and-play)
@@ -16,23 +16,24 @@ Evenement -> Core (Kafka + Elasticsearch) -> Modules (plug-and-play)
 
 ## Repositories
 
-| Repo                                                                                        | Description | |
-|---------------------------------------------------------------------------------------------|-------------|---|
-| [`pme-sdk`](https://github.com/Processing-Modular-Events/pme-sdk)                           | SDK pour developper des modules — zero dependance Spring | ![Public](https://img.shields.io/badge/-public-brightgreen) |
-| [`pme-core`](https://github.com/Processing-Modular-Events/pme-core)                         | Moteur de la plateforme — Spring Boot, Kafka, Elasticsearch | ![Private](https://img.shields.io/badge/-private-red) |
-| [`pme-module-fraud`](https://github.com/Processing-Modular-Events/pme-module-fraud)         | Module de detection de fraude en temps reel | ![Private](https://img.shields.io/badge/-private-red) |
-| [`pme-module-analytics`](https://github.com/Processing-Modular-Events/pme-module-analytics) | Module d'agregation et d'analyse des evenements | ![Public](https://img.shields.io/badge/-public-brightgreen) |
-| [`pme-module-metrics`](https://github.com/Processing-Modular-Events/pme-module-metrics)     | Module de metriques temps reel et suivi de latence | ![Public](https://img.shields.io/badge/-public-brightgreen) |
+| Repo | Description | |
+|------|-------------|---|
+| [`pme-sdk`](https://github.com/Processing-Modular-Events/pme-sdk) | SDK pour developper des modules | ![Public](https://img.shields.io/badge/-public-brightgreen) |
+| [`pme-core`](https://github.com/Processing-Modular-Events/pme-core) | Moteur — Spring Boot, Kafka, Elasticsearch | ![Private](https://img.shields.io/badge/-private-red) |
+| [`pme-module-fraud`](https://github.com/Processing-Modular-Events/pme-module-fraud) | Module de detection de fraude | ![Private](https://img.shields.io/badge/-private-red) |
+| [`pme-module-analytics`](https://github.com/Processing-Modular-Events/pme-module-analytics) | Module d'agregation et d'analyse | ![Public](https://img.shields.io/badge/-public-brightgreen) |
+| [`pme-module-metrics`](https://github.com/Processing-Modular-Events/pme-module-metrics) | Module de metriques temps reel | ![Public](https://img.shields.io/badge/-public-brightgreen) |
+| [`pme-docs`](https://github.com/Processing-Modular-Events/pme-docs) | Documentation SDK (MkDocs) | ![Public](https://img.shields.io/badge/-public-brightgreen) |
 
 ## Architecture
 
 ```
 +------------------+     +-------------------------------+
-|     pme-api      |     |          pme-core             |
+|     pme-sdk      |     |          pme-core             |
 |                  |     |                               |
-|  EventModule     |     |  Spring Boot App              |
+|  EventModule     |     |  REST API (/api/events)       |
 |  EventContext    |     |  Kafka Producer/Consumer      |
-|  Event model     |     |  Elasticsearch Client         |
+|  Event model     |     |  Elasticsearch persistence    |
 |  ModuleConfig    |     |  Module Loader (discovery)    |
 +--------+---------+     +-------+-----------+-----------+
          |                       |           |
